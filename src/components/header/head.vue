@@ -2,7 +2,7 @@
     <div>
          <header>
         	 <span>{{title}}</span>
-        	 <a><i>登录</i>|<i>注册</i></a>
+        	 <i><router-link to="/login">登录</router-link>|<router-link to="/register">注册</router-link></i>
          </header>
     </div>
 </template>
@@ -48,7 +48,7 @@
 		    top: 50%;
 		    transform: translateY(-50%);
 	    }
-	    a{
+	    i{
 	    	right: .4rem;
 		    font-weight: 400;
 		    font-size: 0.9rem;
@@ -58,7 +58,7 @@
 		    position: absolute;
 		    top: 50%;
 		    transform: translateY(-50%);
-		    i{
+		    a{
 		    	color: white;
 		    }
 	    }
