@@ -13,7 +13,7 @@
         
     },
     components:{
-       
+      headTop 
     },
     computed:{
         
@@ -24,5 +24,4 @@
 }
 </script>
 
-<style>
-</style>
+<style lang="scss" scoped="" type="text/css"></style>
