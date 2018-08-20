@@ -2,7 +2,7 @@
 	<div>
 		<div class="login">
 			<mt-field label="账号" placeholder="请输入账号"  v-model="username"  :attr="{ maxlength:20 }"></mt-field>
-			<mt-field label="密码" placeholder="请输入密码" type="password"  :attr="{ maxlength: 10 }"></mt-field>
+			<mt-field label="密码" placeholder="请输入密码" type="password" v-model="password"  :attr="{ maxlength: 10 }"></mt-field>
 			<mt-field label="验证码" >
 			  <img src="" height="45px" width="100px">
 			</mt-field>
@@ -17,11 +17,12 @@
 </template>
 
 <script>
-	  import { Field,Button } from 'mint-ui';
+	  import { Field,Button,Toast } from 'mint-ui';
        export default {
 	    data(){
 	        return{
-	           username:''
+	           username:'',
+	           password:''
 	        }
 	    },
 		mounted(){
@@ -29,23 +30,36 @@
 	    },
 	    components:{
           Field,
-          Button
+          Button,
+          Toast
 	    },
 	    computed:{
 	    	
 	        
 	    },
 	    methods:{
-	       checkUser:()=>{
-	       	  if(!this.username){
-	       	  	 alert("11");
-	       	  }
-	       },
-	       login:function(){
-	       	  this.checkUser;
-	       }
-	    }
+	        login(){
+	        	if(!this.username){
+	        		Toast({
+					  message: '你输入的账号不正确！',
+					  position: 'middle',
+                      duration: 2000
+					});
+	        	}else if(!this.password){
+	        		Toast({
+					  message: '你输入的密码不正确！',
+					  position: 'middle',
+                      duration: 2000
+					});
+	        	}else{
+	        	     this.toLogin();	
+	        	}
+	        },
+	        toLogin(){
+	           this.$router.push('/');
+	        }
 }
+	    }
 </script>
 <style lang="scss" scoped>
     $cred:red;
