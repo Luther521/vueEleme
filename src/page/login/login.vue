@@ -41,8 +41,8 @@
 	       	  	 alert("11");
 	       	  }
 	       },
-	       login:()=>{
-	          this.checkUser();
+	       login:function(){
+	       	  this.checkUser;
 	       }
 	    }
 }
