@@ -4,7 +4,7 @@
 			<mt-field label="账号" placeholder="请输入账号"  v-model="username"  :attr="{ maxlength:20 }"></mt-field>
 			<mt-field label="密码" placeholder="请输入密码" type="password" v-model="password"  :attr="{ maxlength: 10 }"></mt-field>
 			<mt-field label="验证码" >
-			  <img src="" height="45px" width="100px">
+			  <img :src="codeImg" @click.native="updateCode" alt="验证码" title="点击换一张">
 			</mt-field>
 		</div>
 		<div class="btn">
@@ -22,7 +22,8 @@
 	    data(){
 	        return{
 	           username:'',
-	           password:''
+	           password:'',
+	           codeImg: `${this.baseUrl}/captcha/captcha.php`
 	        }
 	    },
 		mounted(){
@@ -57,7 +58,11 @@
 	        },
 	        toLogin(){
 	           this.$router.push('/');
-	        }
+	        }/*,
+	        updateCode() {
+	        	//图形验证码功能不做处理，调用后台数据流就行了
+		        this.codeImg = `${this.baseUrl}/captcha/captcha.php?=${Math.random()}`;
+		    }*/
 }
 	    }
 </script>

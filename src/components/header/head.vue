@@ -1,7 +1,7 @@
 <template>
     <div>
          <header>
-        	 <span>{{title}}</span>
+        	 <span @click="reonload">{{title}}</span>
         	 <i><router-link to="/login">登录</router-link>|<router-link to="/register">注册</router-link></i>
          </header>
     </div>
@@ -23,12 +23,18 @@
 	        
 	    },
 	    methods:{
-	       
+	       reonload(){
+	       	//刷新当前页面
+	       	 window.location.reload();
+	       }
 	    },
 }
 </script>
 
 <style lang="scss">
+	div{
+		height: 2.8rem;
+	}
 	header{
 		background-color: #3190e8;
 	    position: fixed;

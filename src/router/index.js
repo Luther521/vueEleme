@@ -4,6 +4,7 @@ const home = r => require.ensure([], () => r(require('../page/home/home')), 'hom
 //语法require.ensure(dependencies: String[], callback: function(require), chunkName: String)
 const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
 const register = r => require.ensure([], () => r(require('../page/register/register')), 'register')
+const city = r => require.ensure([], () => r(require('../page/city/city')), 'city')
 import App from '../App'
 
 Vue.use(Router)
@@ -24,13 +25,20 @@ export default new Router({
             path: '/home',
             component: home
         },
+        //登录页面
         {
             path: '/login',
             component: login
         },
+        //注册页面
         {
             path: '/register',
             component: register
+        },
+        //当前选择城市页
+        {
+            path: '/city/:cityid',
+            component: city
         }
        ]
     }
